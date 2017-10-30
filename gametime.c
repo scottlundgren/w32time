@@ -1,4 +1,5 @@
 ﻿#include <Windows.h>
+#include <TimeProv.h>
 #include <strsafe.h>
 
 #define	GAMETIME_SVC_KEY_NAME	L"System\\CurrentControlSet\\Services\\W32Time\\TimeProviders\\GameTime"
@@ -35,6 +36,42 @@ void WINAPI OutputError(
 	{
 		OutputDebugStringW(wzError);
 	}
+}
+
+/*
+ *
+ */
+HRESULT __stdcall TimeProvOpen(
+	_In_  WCHAR                *wszName,
+	_In_  TimeProvSysCallbacks *pSysCallbacks,
+	_Out_ TimeProvHandle       *phTimeProv
+)
+{
+	OutputDebugStringW(wszName);
+
+	return (HRESULT_FROM_WIN32(ERROR_NOT_CAPABLE));
+}
+
+/*
+ *
+ */
+HRESULT __stdcall TimeProvCommand(
+	_In_ TimeProvHandle hTimeProv,
+	_In_ TimeProvCmd    eCmd,
+	_In_ PVOID          pvArgs
+)
+{
+	return (HRESULT_FROM_WIN32(ERROR_NOT_CAPABLE));
+}
+
+/*
+ *
+ */
+HRESULT __stdcall TimeProvClose(
+	_In_ TimeProvHandle hTimeProv
+)
+{
+	return (S_OK);
 }
 
 /*

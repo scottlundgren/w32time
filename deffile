@@ -3,3 +3,6 @@ LIBRARY
 EXPORTS
     Register
     Deregister
+	TimeProvOpen
+	TimeProvCommand
+	TimeProvClose

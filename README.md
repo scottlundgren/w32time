@@ -8,9 +8,9 @@ Microsoft's own NTP client is implemented as a Win32 time provider.  VMWare's VM
 
 Time providers are an interesting Autorun mechanism for three reasons:
 
-(1) Time Providers are not well known or documented
+(1) Time Providers are not well-known or well-documented
 
-(2) The implementation of time providers allow for installing any number of time providers, so a custom time provider can be   installed easily alongside existing time providers with no loss of functionality
+(2) The implementation of time providers allow for installing any number of time providers, so a custom time provider can be   installed easily alongside existing time providers with no loss of functionality and no need to proxy through to the original.
 
 (3) Time providers can be enabled or disabled with a single registry value
 
@@ -32,9 +32,9 @@ Under the new key, three values must be created:
 
     REG_SZ DllName (Name of the time provider DLL)
     
-    REG_DWORD Enabled
+    REG_DWORD Enabled (1 or 0)
     
-    REG_DWORD InputProvider
+    REG_DWORD InputProvider (1 or 0)
 
 Registering & Deregistering 
 ---------------------------

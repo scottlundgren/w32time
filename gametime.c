@@ -47,6 +47,9 @@ HRESULT __stdcall TimeProvOpen(
     _Out_ TimeProvHandle       *phTimeProv
 )
 {
+    UNREFERENCED_PARAMETER(pSysCallbacks);
+    UNREFERENCED_PARAMETER(phTimeProv);
+
     OutputDebugStringW(wszName);
 
     return (HRESULT_FROM_WIN32(ERROR_NOT_CAPABLE));
@@ -61,6 +64,10 @@ HRESULT __stdcall TimeProvCommand(
     _In_ PVOID          pvArgs
 )
 {
+    UNREFERENCED_PARAMETER(hTimeProv);
+    UNREFERENCED_PARAMETER(eCmd);
+    UNREFERENCED_PARAMETER(pvArgs);
+
     return (HRESULT_FROM_WIN32(ERROR_NOT_CAPABLE));
 }
 
@@ -71,6 +78,8 @@ HRESULT __stdcall TimeProvClose(
     _In_ TimeProvHandle hTimeProv
 )
 {
+    UNREFERENCED_PARAMETER(hTimeProv);
+
     return (S_OK);
 }
 
@@ -129,7 +138,7 @@ void CALLBACK Register(
                           0,
                           REG_SZ,
                           (LPBYTE)g_wzModule,
-                          wcslen(g_wzModule)*sizeof(WCHAR)+sizeof(WCHAR));
+                          (DWORD)wcslen(g_wzModule)*sizeof(WCHAR)+sizeof(WCHAR));
     if (ERROR_SUCCESS != nRet)
     {
         OutputError(L"RegCreateKeyExW failed", nRet);
